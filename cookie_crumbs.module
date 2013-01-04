@@ -79,7 +79,7 @@ function cookie_crumbs_block_view($delta='') {
     return $block;
   }
   // If the library doesn't exist, stop.
-  if (!hanselsrevenge_js_library_path()) {
+  if (!cookie_crumbs_hanselsrevenge_js_library_path()) {
     if (user_access('administer blocks')) {
       drupal_set_message(t('The Cookie Crumbs block was inserted in a region, but the library is not found.'), 'error');
     }
@@ -87,7 +87,7 @@ function cookie_crumbs_block_view($delta='') {
   }
 
   // Add the library and the configuration.
-  drupal_add_js(hanselsrevenge_js_library_path());
+  drupal_add_js(cookie_crumbs_hanselsrevenge_js_library_path());
   $js_settings = array(
     'cookie_crumbs_class_name' => 'cookie-crumbs',
     'items_to_show' => variable_get('cookie_crumbs_length', 5),
@@ -102,7 +102,7 @@ function cookie_crumbs_block_view($delta='') {
 /**
  * Returns the path to the Hansels Revenge JavaScript file.
  */
-function hanselsrevenge_js_library_path() {
+function cookie_crumbs_hanselsrevenge_js_library_path() {
   $path = libraries_get_path('hanselsrevenge');
 
   // Check wether the library is downloaded to the libraries folder.

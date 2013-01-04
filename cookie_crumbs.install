@@ -21,9 +21,9 @@ function cookie_crumbs_requirements($phase) {
 
   $requirements['hanselsrevenge'] = array(
     'title' => $t('HanselsRevenge jQuery JavaScript file'),
-    'value' => hanselsrevenge_js_library_path() ? $t('Library found') : $t('Library not found'),
-    'description' => !hanselsrevenge_js_library_path() ? $t('Place <code>jquery.hanselsrevenge.js</code> in <em>sites/all/libraries/hanselsrevenge</em>. You can download the library from <a href="!url">!url</a>', array('!url' => 'https://github.com/soitgoes/hanselsrevenge')) : NULL,
-    'severity' => hanselsrevenge_js_library_path() ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+    'value' => cookie_crumbs_hanselsrevenge_js_library_path() ? $t('Library found') : $t('Library not found'),
+    'description' => !cookie_crumbs_hanselsrevenge_js_library_path() ? $t('Place <code>jquery.hanselsrevenge.js</code> in <em>sites/all/libraries/hanselsrevenge</em>. You can download the library from <a href="!url">!url</a>', array('!url' => 'https://github.com/soitgoes/hanselsrevenge')) : NULL,
+    'severity' => cookie_crumbs_js_library_path() ? REQUIREMENT_OK : REQUIREMENT_ERROR,
   );
 
   return $requirements;
