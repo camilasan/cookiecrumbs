@@ -2,4 +2,3 @@ name = Cookie Crumbs
 description = Provides a block with cookie based breadcrumbs.
 core = 7.x
 dependencies[] = libraries
-
