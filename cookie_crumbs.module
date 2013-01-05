@@ -12,9 +12,15 @@ function cookie_crumbs_theme($existing, $type, $theme, $path) {
   return array(
     'cookie_crumbs_ul' => array(
       'variables' => array('class' => NULL),
-      'file' => 'cookie_crumbs.theme.inc',
     ),
   );
+}
+
+/**
+ * Theme function for creating the Cookie Crumbs container.
+ */
+function theme_cookie_crumbs_ul($vars) {
+  return '<ul class="' . $vars['class'] . '"></ul>';
 }
 
 /**
