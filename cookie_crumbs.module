@@ -61,7 +61,7 @@ function cookie_crumbs_block_save($delta = '', $edit = array()) {
   }
   // Saving the length of cookie crumbs.
   if (isset($edit['cookie_crumbs_length']['value'])) {
-    variable_set('cookie_crumbs_length', $edit['cookie_crumbs_length']['value']);
+    variable_set('cookie_crumbs_length', check_plain($edit['cookie_crumbs_length']['value']));
   }
   else {
     variable_del('cookie_crumbs_length');
