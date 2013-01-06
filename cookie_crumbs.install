@@ -16,6 +16,11 @@ function cookie_crumbs_uninstall() {
  * Implements hook_requirements().
  */
 function cookie_crumbs_requirements($phase) {
+
+  if ($phase != 'runtime') {
+    return array();
+  }
+
   module_load_include('module', 'cookie_crumbs', 'cookie_crumbs');
   $t = get_t();
 
