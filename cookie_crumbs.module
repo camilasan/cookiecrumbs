@@ -93,7 +93,10 @@ function cookie_crumbs_block_view($delta='') {
   }
 
   // Add the library and the configuration.
-  drupal_add_js(cookie_crumbs_hanselsrevenge_js_library_path());
+  drupal_add_js(cookie_crumbs_hanselsrevenge_js_library_path(), array(
+    'scope' => 'footer',
+    'group' => JS_LIBRARY,
+  ));
   $js_settings = array(
     'cookie_crumbs' => array(
       'class_name' => 'cookie-crumbs',
