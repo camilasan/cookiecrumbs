@@ -80,6 +80,8 @@ function cookie_crumbs_block_save($delta = '', $edit = array()) {
 function cookie_crumbs_block_view($delta='') {
   $block = array();
 
+  krumo('blockview');
+
   // Do not continue if this isn't the cookie_crumbs block.
   if ($delta != 'cookie_crumbs') {
     return $block;
@@ -103,11 +105,34 @@ function cookie_crumbs_block_view($delta='') {
       'items_to_show' => variable_get('cookie_crumbs_length', 5),
     ),
   );
+  // Providing a hook to make it possible to alter the JavaScript
+  // settings for Cookie Crumbs.
+  if ($altered_settings = module_invoke_all('cookie_crumbs_js_settings', $js_settings['cookie_crumbs'])) {
+    $js_settings['cookie_crumbs'] = $altered_settings;
+  }
   drupal_add_js($js_settings, 'setting');
   drupal_add_js(drupal_get_path('module', 'cookie_crumbs') . '/hanselsrevenge_config.js');
   $block['content'] = theme('cookie_crumbs_ul', array('class' => $js_settings['cookie_crumbs']['class_name']));
 
   return $block;
+}
+
+/**
+ * Implements hook_help().
+ */
+function cookie_crumbs_help($path, $arg) {
+
+  if ($path != 'admin/help#cookie_crumbs') {
+    return;
+  }
+
+  $output = '';
+  $output .= '<h3>' . t('About') . '</h3>';
+  $output .= '<p>' . t("Cookie Crumbs provides a breadcrumbs block. Blocks can be managed at <a href='@blocks'>Blocks administration page</a>. Most of the times it's advicable to set this block in a content region, just above the page content") . '</p>';
+  $output .= '<h3>' . t('Installation') . '</h3>';
+  $output .= '<p>' . t('Inorder to get Cookie Crumbs working you need a 3rd party library. This library <code>jquery.hanselsrevenge.js</code> should be placed in <em>sites/all/libraries/hanselsrevenge</em>. You can download the library from <a href="!url">!url</a>', array('!url' => 'https://github.com/soitgoes/hanselsrevenge')) . '</p>';
+
+  return $output;
 }
 
 /**
