@@ -77,7 +77,7 @@ function cookie_crumbs_block_save($delta = '', $edit = array()) {
 /**
  * Implements hook_block_view().
  */
-function cookie_crumbs_block_view($delta='') {
+function cookie_crumbs_block_view($delta = '') {
   $block = array();
 
   // Do not continue if this isn't the cookie_crumbs block.
