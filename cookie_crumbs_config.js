@@ -4,7 +4,7 @@
  */
 (function ($) {
 
-  Drupal.behaviors.hanselsRevenge = {
+  Drupal.behaviors.cookie_crumbs = {
     attach: function (context, settings) {
       // Attach the breadcrumbs.
       $.fn.hanselsRevenge({
