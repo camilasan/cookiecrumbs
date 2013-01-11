@@ -38,7 +38,7 @@ function cookie_crumbs_block_info() {
 /**
  * Implements hook_block_configure().
  */
-function cookie_crumbs_block_configure($delta='') {
+function cookie_crumbs_block_configure($delta = '') {
   $form = array();
 
   // Do not continue if this isn't the cookie_crumbs block.
