@@ -21,7 +21,7 @@ function cookie_crumbs_requirements($phase) {
     return array();
   }
 
-  module_load_include('module', 'cookie_crumbs', 'cookie_crumbs');
+  require_once 'cookie_crumbs.module';
   $t = get_t();
 
   $requirements['hanselsrevenge'] = array(
