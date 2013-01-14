@@ -97,6 +97,18 @@ function cookie_crumbs_block_view($delta = '') {
     'scope' => 'footer',
     'group' => JS_LIBRARY,
   ));
+  // Check whether cookie library exists else use the cookie jQuery plugin that
+  // ships with hanselsRevenge.
+  if (libraries_detect('jquery-cookie')) {
+    $jq_cookie_path = libraries_get_path('jquery-cookie') . '/jquery.cookie.js';
+  }
+  else {
+    $jq_cookie_path = libraries_get_path('hanselsrevenge') . '/jquery.cookie.js';
+  }
+  drupal_add_js($jq_cookie_path, array(
+    'scope' => 'footer',
+    'group' => JS_LIBRARY,
+  ));
   $js_settings = array(
     'cookie_crumbs' => array(
       'class_name' => 'cookie-crumbs',
