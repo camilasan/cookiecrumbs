@@ -20,7 +20,7 @@ function cookie_crumbs_theme($existing, $type, $theme, $path) {
  * Theme function for creating the Cookie Crumbs container.
  */
 function theme_cookie_crumbs_ul($vars) {
-  return '<span>You are here:</span> <ul class="' . $vars['class'] . '"></ul>';
+  return '<span>Sie befinden sich hier:</span> <ul class="' . $vars['class'] . '"></ul>';
 }
 
 /**
