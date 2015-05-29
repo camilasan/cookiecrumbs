@@ -6,6 +6,8 @@
 
   Drupal.behaviors.cookie_crumbs = {
     attach: function (context, settings) {
+//       console.log("SETTINGS");
+//       console.log(settings);
       // If hook_cookie_crumbs_js_settings() sets title_override it will
       // override the title.
       if (settings.cookie_crumbs.title_override) {
@@ -21,7 +23,8 @@
         allowURIQuery: true,
         debug: false,
         cookieOptions: {path: "/"},
-        inheritLandingCrumbs: false
+        inheritLandingCrumbs: false,
+	cookieKey: settings.cookie_crumbs.cookieKey
       });
     }
   };
