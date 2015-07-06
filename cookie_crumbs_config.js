@@ -16,7 +16,7 @@
         }
       }
       // Attach the breadcrumbs.
-      $.fn.hanselsRevenge({
+      jQuery.fn.hanselsRevenge({
         titleCallback : titleCallback,
         breadCrumbSelector: '.' + settings.cookie_crumbs.class_name,
         maxDepth: parseInt(settings.cookie_crumbs.items_to_show),
